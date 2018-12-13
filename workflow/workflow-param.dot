@@ -1,0 +1,114 @@
+
+/* Start of top-level graph */
+digraph Workflow {
+rankdir=TB
+
+/* Title for graph */
+fontname=Helvetica; fontsize=18; labelloc=t
+label=FinalProject
+
+/* Start of double cluster for drawing box around nodes in workflow */
+subgraph cluster_workflow_box_outer { label=""; color=black; penwidth=2
+subgraph cluster_workflow_box_inner { label=""; penwidth=0
+
+/* Style for nodes representing atomic programs in workflow */
+node[shape=box style=filled fillcolor="#CCFFCC" peripheries=1 fontname=Helvetica]
+
+/* Nodes representing atomic programs in workflow */
+openRefineProject [shape=record rankdir=LR label="{<f0> openRefineProject |<f1> Create project}"];
+Assessment [shape=record rankdir=LR label="{<f0> Assessment |<f1> uniqueness, accuracy, validity}"];
+MarketNames
+UpdateTime
+SeasonDate
+City
+County
+SQL
+IDIntegrity [shape=record rankdir=LR label="{<f0> IDIntegrity |<f1> Validate unique id}"];
+updateYear [shape=record rankdir=LR label="{<f0> updateYear |<f1> Validate and repare year constraint}"];
+seasonDate [shape=record rankdir=LR label="{<f0> seasonDate |<f1> Validate and repare format}"];
+startSeason [shape=record rankdir=LR label="{<f0> startSeason |<f1> Split and extract season beginning}"];
+endSeason [shape=record rankdir=LR label="{<f0> endSeason |<f1> Split and extract end of season end}"];
+
+/* Style for nodes representing non-parameter data channels in workflow */
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+
+/* Nodes for non-parameter data channels in workflow */
+input [shape=record rankdir=LR label="{<f0> input |<f1> https\://www.ams.usda.gov/local-food-directories/farmersmarkets}"];
+report
+project
+"file:farmersmarket.sql"
+createdb
+columnsplit
+
+/* Style for nodes representing parameter channels in workflow */
+node[shape=box style="rounded,filled" fillcolor="#FCFCFC" peripheries=1 fontname=Helvetica]
+
+/* Nodes representing parameter channels in workflow */
+
+/* Edges representing connections between programs and channels */
+openRefineProject -> project
+input -> openRefineProject
+report -> openRefineProject
+Assessment -> report
+input -> Assessment
+"file:data-assessment.ipynb" -> Assessment
+MarketNames -> "file:farmersmarket.sql"
+MarketNames -> "export:OpenrefineHistory.log"
+project -> MarketNames
+"CommonTransform-lowerCase" -> MarketNames
+"CommonTransform-traling" -> MarketNames
+"Replace-value.replace(/'/,\"\")" -> MarketNames
+"CommonTransform-spaces" -> MarketNames
+Clustering -> MarketNames
+UpdateTime -> "export:OpenrefineHistory.log"
+UpdateTime -> "file:farmersmarket.sql"
+project -> UpdateTime
+ReplaceStringMonthbyDigit -> UpdateTime
+MoveDateIntoNewColumn -> UpdateTime
+"Split-Date/Time" -> UpdateTime
+"ReformatDateinto4-digits" -> UpdateTime
+SeasonDate -> "file:farmersmarket.sql"
+SeasonDate -> "export:OpenrefineHistory.log"
+project -> SeasonDate
+City -> "file:farmersmarket.sql"
+City -> "export:OpenrefineHistory.log"
+project -> City
+TitleCase -> City
+County -> "file:farmersmarket.sql"
+County -> "export:OpenrefineHistory.log"
+project -> County
+TitleCase -> County
+SQL -> createdb
+"file:farmersmarket.sql" -> SQL
+IDIntegrity -> "farmersmarket-sql.csv"
+createdb -> IDIntegrity
+updateYear -> "farmersmarket-sql.csv"
+createdb -> updateYear
+seasonDate -> columnsplit
+createdb -> seasonDate
+startSeason -> "farmersmarket-sql.csv"
+columnsplit -> startSeason
+endSeason -> "farmersmarket-sql.csv"
+columnsplit -> endSeason
+
+/* End of double cluster for drawing box around nodes in workflow */
+}}
+
+/* Style for nodes representing workflow input ports */
+node[shape=circle style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica width=0.2]
+
+/* Nodes representing workflow input ports */
+input_input_port [label=""]
+
+/* Style for nodes representing workflow output ports */
+node[shape=circle style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica width=0.2]
+
+/* Nodes representing workflow output ports */
+
+/* Edges from input ports to channels */
+input_input_port -> input
+
+/* Edges from channels to output ports */
+
+/* End of top-level graph */
+}

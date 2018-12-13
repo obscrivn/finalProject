@@ -1,0 +1,508 @@
+[
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column MarketName using expression value.toLowercase()",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "MarketName",
+    "expression": "value.toLowercase()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column MarketName using expression grel:value.replace(/'/,\"\")",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "MarketName",
+    "expression": "grel:value.replace(/'/,\"\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column MarketName using expression value.replace(/\\s+/,' ')",
+    "engineConfig": {
+      "mode": "record-based",
+      "facets": []
+    },
+    "columnName": "MarketName",
+    "expression": "value.replace(/\\s+/,' ')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column MarketName using expression value.trim()",
+    "engineConfig": {
+      "mode": "record-based",
+      "facets": []
+    },
+    "columnName": "MarketName",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column MarketName",
+    "engineConfig": {
+      "mode": "record-based",
+      "facets": []
+    },
+    "columnName": "MarketName",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "midtown farmers market",
+          "mid-town farmers market"
+        ],
+        "to": "midtown farmers market"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "athens farmers market, l.l.c.",
+          "athens farmers market, llc"
+        ],
+        "to": "athens farmers market, llc."
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "downtown laurel farmers market",
+          "laurel downtown farmers market"
+        ],
+        "to": "downtown laurel farmers market"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "rochester downtown farmers market",
+          "downtown rochester farmers market"
+        ],
+        "to": "rochester downtown farmers market"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "farmers market at the avenue ( white marsh)",
+          "the avenue at white marsh farmers market"
+        ],
+        "to": "farmers market at white march avenue"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "farmers gateway market",
+          "gateway farmers market"
+        ],
+        "to": "farmers gateway market"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "farmers market - lincoln",
+          "lincoln farmers market"
+        ],
+        "to": "lincoln farmers market"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "bowling green community farmers market",
+          "community farmers market bowling green"
+        ],
+        "to": "bowling green community farmers market"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "farmers friday market",
+          "friday farmers market"
+        ],
+        "to": "farmers friday market"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "market square",
+          "square market"
+        ],
+        "to": "market square"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "lee farmers market",
+          "lee farmers\" market"
+        ],
+        "to": "lee farmers market"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "columbus downtown farmers market",
+          "downtown columbus farmers market"
+        ],
+        "to": "columbus downtown farmers market"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "burlington downtown farmers market",
+          "downtown burlington farmers market"
+        ],
+        "to": "burlington downtown farmers market"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "market in the loop",
+          "the market in the loop"
+        ],
+        "to": "market in the loop"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "albany downtown farmers market",
+          "downtown albany farmers market"
+        ],
+        "to": "albany downtown farmers market"
+      }
+    ]
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column updateTime using expression grel:value.replace(\"Apr \",\"4/\")",
+    "engineConfig": {
+      "mode": "record-based",
+      "facets": []
+    },
+    "columnName": "updateTime",
+    "expression": "grel:value.replace(\"Apr \",\"4/\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column updateTime using expression grel:value.replace(\"Jul \",\"7/\")",
+    "engineConfig": {
+      "mode": "record-based",
+      "facets": []
+    },
+    "columnName": "updateTime",
+    "expression": "grel:value.replace(\"Jul \",\"7/\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column updateTime using expression grel:value.replace(“May \",\"5/“)",
+    "engineConfig": {
+      "mode": "record-based",
+      "facets": []
+    },
+    "columnName": "updateTime",
+    "expression": "grel:value.replace(“May \",\"5/“)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column updateTime using expression grel:value.replace(\"May \",\"5/\")",
+    "engineConfig": {
+      "mode": "record-based",
+      "facets": []
+    },
+    "columnName": "updateTime",
+    "expression": "grel:value.replace(\"May \",\"5/\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column updateTime using expression grel:value.replace(\"Jun \",\"6/\")",
+    "engineConfig": {
+      "mode": "record-based",
+      "facets": []
+    },
+    "columnName": "updateTime",
+    "expression": "grel:value.replace(\"Jun \",\"6/\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-split",
+    "description": "Split column updateTime by separator",
+    "engineConfig": {
+      "mode": "record-based",
+      "facets": []
+    },
+    "columnName": "updateTime",
+    "guessCellType": true,
+    "removeOriginalColumn": true,
+    "mode": "separator",
+    "separator": "\\s+",
+    "regex": true,
+    "maxColumns": 2
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column updateTime 1 using expression grel:value.replace(/[0-9]+\\/[0-9]+\\//,\"\")",
+    "engineConfig": {
+      "mode": "record-based",
+      "facets": []
+    },
+    "columnName": "updateTime 1",
+    "expression": "grel:value.replace(/[0-9]+\\/[0-9]+\\//,\"\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Season1Date using expression grel:value.replace(/10\\/[0-9]+\\/[0-9]{4}/,\"October\")",
+    "engineConfig": {
+      "mode": "record-based",
+      "facets": []
+    },
+    "columnName": "Season1Date",
+    "expression": "grel:value.replace(/10\\/[0-9]+\\/[0-9]{4}/,\"October\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Season1Date using expression grel:value.replace(/0?9\\/[0-9]+\\/[0-9]{4}/,\"September\")",
+    "engineConfig": {
+      "mode": "record-based",
+      "facets": []
+    },
+    "columnName": "Season1Date",
+    "expression": "grel:value.replace(/0?9\\/[0-9]+\\/[0-9]{4}/,\"September\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Season1Date using expression grel:value.replace(/0?8\\/[0-9]+\\/[0-9]{4}/,\"August\")",
+    "engineConfig": {
+      "mode": "record-based",
+      "facets": []
+    },
+    "columnName": "Season1Date",
+    "expression": "grel:value.replace(/0?8\\/[0-9]+\\/[0-9]{4}/,\"August\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Season1Date using expression grel:value.replace(/11\\/[0-9]+\\/[0-9]{4}/,\"November\")",
+    "engineConfig": {
+      "mode": "record-based",
+      "facets": []
+    },
+    "columnName": "Season1Date",
+    "expression": "grel:value.replace(/11\\/[0-9]+\\/[0-9]{4}/,\"November\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Season1Date using expression grel:value.replace(/12\\/[0-9]+\\/[0-9]{4}/,\"December\")",
+    "engineConfig": {
+      "mode": "record-based",
+      "facets": []
+    },
+    "columnName": "Season1Date",
+    "expression": "grel:value.replace(/12\\/[0-9]+\\/[0-9]{4}/,\"December\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Season1Date using expression grel:value.replace(/0?6\\/[0-9]+\\/[0-9]{4}/,\"June\")",
+    "engineConfig": {
+      "mode": "record-based",
+      "facets": []
+    },
+    "columnName": "Season1Date",
+    "expression": "grel:value.replace(/0?6\\/[0-9]+\\/[0-9]{4}/,\"June\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Season1Date using expression grel:value.replace(/0?7\\/[0-9]+\\/[0-9]{4}/,\"July\")",
+    "engineConfig": {
+      "mode": "record-based",
+      "facets": []
+    },
+    "columnName": "Season1Date",
+    "expression": "grel:value.replace(/0?7\\/[0-9]+\\/[0-9]{4}/,\"July\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Season1Date using expression grel:value.replace(/0?5\\/[0-9]+\\/[0-9]{4}/,\"May\")",
+    "engineConfig": {
+      "mode": "record-based",
+      "facets": []
+    },
+    "columnName": "Season1Date",
+    "expression": "grel:value.replace(/0?5\\/[0-9]+\\/[0-9]{4}/,\"May\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Season1Date using expression grel:value.replace(/0?4\\/[0-9]+\\/[0-9]{4}/,\"April\")",
+    "engineConfig": {
+      "mode": "record-based",
+      "facets": []
+    },
+    "columnName": "Season1Date",
+    "expression": "grel:value.replace(/0?4\\/[0-9]+\\/[0-9]{4}/,\"April\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Season1Date using expression grel:value.replace(/0?2\\/[0-9]+\\/[0-9]{4}/,\"February\")",
+    "engineConfig": {
+      "mode": "record-based",
+      "facets": []
+    },
+    "columnName": "Season1Date",
+    "expression": "grel:value.replace(/0?2\\/[0-9]+\\/[0-9]{4}/,\"February\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Season1Date using expression grel:value.replace(/12\\/[0-9]+\\/[0-9]{4}/,\"December\")",
+    "engineConfig": {
+      "mode": "record-based",
+      "facets": []
+    },
+    "columnName": "Season1Date",
+    "expression": "grel:value.replace(/12\\/[0-9]+\\/[0-9]{4}/,\"December\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Season1Date using expression grel:value.replace(/0?3\\/[0-9]+\\/[0-9]{4}/,\"March\")",
+    "engineConfig": {
+      "mode": "record-based",
+      "facets": []
+    },
+    "columnName": "Season1Date",
+    "expression": "grel:value.replace(/0?3\\/[0-9]+\\/[0-9]{4}/,\"March\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Season1Date using expression grel:value.replace(/0?1\\/[0-9]+\\/[0-9]{4}/,\"January\")",
+    "engineConfig": {
+      "mode": "record-based",
+      "facets": []
+    },
+    "columnName": "Season1Date",
+    "expression": "grel:value.replace(/0?1\\/[0-9]+\\/[0-9]{4}/,\"January\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column city using expression value.toTitlecase()",
+    "engineConfig": {
+      "mode": "record-based",
+      "facets": []
+    },
+    "columnName": "city",
+    "expression": "value.toTitlecase()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column County using expression value.toTitlecase()",
+    "engineConfig": {
+      "mode": "record-based",
+      "facets": []
+    },
+    "columnName": "County",
+    "expression": "value.toTitlecase()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Organic using expression grel:value.replace(\"-\",\"\")",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "Organic",
+    "expression": "grel:value.replace(\"-\",\"\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+{
+    "op": "core/column-rename",
+    "description": "Rename column updateTime 1 to updateYear",
+    "oldColumnName": "updateTime 1",
+    "newColumnName": "updateYear"
+  }
+]

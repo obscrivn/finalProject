@@ -1,0 +1,97 @@
+#@BEGIN FinalProject
+
+#@IN input_csv_file  @as input @URI https://www.ams.usda.gov/local-food-directories/farmersmarkets
+# @PARAM python
+# @OUT output_csv_file 
+
+
+#@begin openRefineProject @desc Create project
+
+# @in input 
+# @in report @desc accuracy, validity
+# @out project
+#@end openRefineProject
+
+# @BEGIN Assessment @desc uniqueness, accuracy, validity
+
+# @IN input_csv_file  @as input @URI https://www.ams.usda.gov/local-food-directories/farmersmarkets
+
+# @in script @as file:data-assessment.ipynb
+# @out report @desc accuracy, validity
+#@END Assessement
+
+#@begin MarketNames
+# @in project
+# @param CommonTransform-lowerCase
+# @param CommonTransform-traling
+# @param Replace-value.replace(/'/,"")
+# @param CommonTransform-spaces
+# @param Clustering @desc 16 clusters
+# @out outputfile @as file:farmersmarket.sql
+# @out OpenRefineReport @as export:OpenrefineHistory.log
+#@end MarketNames
+
+
+
+#@begin UpdateTime
+# @in project
+# @param ReplaceStringMonthbyDigit
+# @param MoveDateIntoNewColumn
+# @param Split-Date/Time
+# @param ReformatDateinto4-digits
+# @out OpenRefineReport @as export:OpenrefineHistory.log
+# @out outputfile @as file:farmersmarket.sql
+#@end UpdateTime
+
+#@begin SeasonDate
+# @in project
+# @out outputfile @as file:farmersmarket.sql
+# @out OpenRefineReport @as export:OpenrefineHistory.log
+#@end SeasonDate
+
+#@begin City
+# @in project
+# @param TitleCase
+# @out outputfile @as file:farmersmarket.sql
+# @out OpenRefineReport @as export:OpenrefineHistory.log
+#@end City
+
+#@begin County
+# @in project
+# @param TitleCase
+# @out outputfile @as file:farmersmarket.sql
+# @out OpenRefineReport @as export:OpenrefineHistory.log
+#@end County
+
+# @begin SQL
+# @in outputfile @as file:farmersmarket.sql
+# @out createdb
+# @end SQL
+
+# @begin IDIntegrity @desc Validate unique id
+# @in createdb
+# @out farmersmarket-sql.csv
+# @end IDIntegrity
+
+# @begin updateYear @desc Validate and repare year constraint
+# @in createdb
+# @out farmersmarket-sql.csv
+# @end updateYear
+
+# @begin seasonDate @desc Validate and repare format
+# @in createdb
+# @out columnsplit
+# @end seasonDate
+
+
+# @begin startSeason @desc Split and extract season beginning
+# @in columnsplit
+# @out farmersmarket-sql.csv
+# @end startSeason
+
+# @begin endSeason @desc Split and extract end of season end
+# @in columnsplit
+# @out farmersmarket-sql.csv
+# @end endSeason
+
+#@END FinalProject
